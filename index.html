@@ -18,6 +18,12 @@
         h1 { font-size: 2.8rem; margin-bottom: 10px; background: linear-gradient(90deg, #f1f5f9, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .subtitle { color: #94a3b8; font-size: 1.1rem; margin-bottom: 25px; }
         
+        /* Статистика */
+        .stats { display: flex; justify-content: center; gap: 25px; margin: 20px 0; flex-wrap: wrap; }
+        .stat-item { background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-align: center; min-width: 180px; }
+        .stat-number { font-size: 2.2rem; font-weight: 700; background: linear-gradient(90deg, #60a5fa, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-label { color: #94a3b8; font-size: 0.9rem; margin-top: 5px; }
+        
         /* Контактная панель */
         .contact-panel { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 25px 0; }
         .contact-badge { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px; }
@@ -43,11 +49,11 @@
         .ad-card { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.05); position: relative; }
         .ad-card.featured { border-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
         .ad-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #8b5cf6; color: white; padding: 6px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
-.ad-price { font-size: 2.5rem; font-weight: 700; margin: 20px 0; background: linear-gradient(90deg, #f1f5f9, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .ad-price { font-size: 2.5rem; font-weight: 700; margin: 20px 0; background: linear-gradient(90deg, #f1f5f9, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .ad-features { list-style: none; margin: 25px 0; }
         .ad-features li { padding: 8px 0; color: #cbd5e1; display: flex; align-items: center; gap: 10px; }
         .ad-features li i { color: #10b981; }
-        .ad-button { display: inline-block; width: 100%; text-align: center; background: linear-gradient(90deg, #8b5cf6, #3b82f6); color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease; margin-top: 10px; }
+        .ad-button { display: inline-block; width: 100%; text-align: center; background: linear-gradient(90deg, #8b5cf6, #3b82f6); color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease; margin-top: 10px; border: none; cursor: pointer; font-family: inherit; font-size: 1rem; }
         .ad-button:hover { transform: translateY(-2px); }
         
         /* Менеджер */
@@ -69,8 +75,9 @@
             .header { padding: 30px 15px; }
             h1 { font-size: 2.2rem; }
             .ref-grid, .ad-plans { grid-template-columns: 1fr; }
-            .contact-panel { flex-direction: column; align-items: center; }
+            .contact-panel, .stats { flex-direction: column; align-items: center; }
             .manager-card { flex-direction: column; text-align: center; }
+            .stat-item { min-width: 150px; }
         }
     </style>
 </head>
@@ -83,6 +90,22 @@
             </div>
             <h1>DropsRus</h1>
             <p class="subtitle">Реферальные программы и эффективная реклама в Telegram</p>
+            
+            <!-- Статистика канала -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">1200+</div>
+                    <div class="stat-label">Подписчиков в канале</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500-700</div>
+                    <div class="stat-label">Просмотров на постах</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">97%</div>
+                    <div class="stat-label">ER (вовлеченность)</div>
+                </div>
+            </div>
             
             <div class="contact-panel">
                 <div class="contact-badge">
@@ -107,7 +130,8 @@
                 Реферальные программы
             </h2>
             <p style="color: #94a3b8; margin-bottom: 25px; font-size: 1.1rem;">Нажмите на карточку для перехода и получения бонуса</p>
-<div class="ref-grid">
+            
+            <div class="ref-grid">
                 <!-- Альфа-банк -->
                 <a href="https://alfa.me/m3QxhK" target="_blank" class="ref-card">
                     <div class="card-header">
@@ -149,7 +173,7 @@
                 <i class="fas fa-bullhorn"></i>
                 Реклама в Telegram-канале
             </h2>
-            <p style="color: #94a3b8; margin-bottom: 30px; font-size: 1.1rem;">Эффективное продвижение вашего продукта или услуги</p>
+            <p style="color: #94a3b8; margin-bottom: 30px; font-size: 1.1rem;">Эффективное продвижение для охвата 500-700 активных пользователей за пост</p>
             
             <div class="ad-plans">
                 <!-- Базовый план -->
@@ -157,18 +181,19 @@
                     <div class="ad-badge">САМЫЙ ВЫБОР</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">📌 Пост-реклама</h3>
                     <div class="ad-price">750 ₽</div>
-                    <p style="color: #cbd5e1; margin-bottom: 20px;">Размещение рекламного поста в канале</p>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">Размещение рекламного поста в канале на 24 часа</p>
                     
                     <ul class="ad-features">
-                        <li><i class="fas fa-check"></i> Пост остается навсегда</li>
-                        <li><i class="fas fa-check"></i> Охват 5000+ пользователей</li>
-                        <li><i class="fas fa-check"></i> Ссылка и описание</li>
-                        <li><i class="fas fa-check"></i> Пиковый трафик</li>
+                        <li><i class="fas fa-check"></i> Пост остается в канале навсегда</li>
+                        <li><i class="fas fa-check"></i> Охват 500-700 пользователей</li>
+                        <li><i class="fas fa-check"></i> Ссылка + описание (до 500 символов)</li>
+                        <li><i class="fas fa-check"></i> Размещение в пиковое время</li>
+                        <li><i class="fas fa-check"></i> Вовлеченная аудитория 1200+</li>
                     </ul>
                     
-                    <a href="https://t.me/Raymond_TGG" target="_blank" class="ad-button">
+                    <button class="ad-button" onclick="orderAd('рекламный пост')">
                         Заказать рекламу
-                    </a>
+                    </button>
                 </div>
                 
                 <!-- Розыгрыш -->
@@ -176,19 +201,20 @@
                     <div class="ad-badge" style="background: #f59e0b;">ВЫГОДНО</div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">🎁 Розыгрыш + реклама</h3>
                     <div class="ad-price">2000 ₽</div>
-                    <p style="color: #cbd5e1; margin-bottom: 20px;">Розыгрыш приза с рекламой вашего продукта</p>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">Организация розыгрыша с рекламой вашего продукта</p>
                     
                     <ul class="ad-features">
-<li><i class="fas fa-check"></i> Организация розыгрыша</li>
-                        <li><i class="fas fa-check"></i> Призовой фонд от вас</li>
-                        <li><i class="fas fa-check"></i> Максимальный охват</li>
-                        <li><i class="fas fa-check"></i> Участие в конкурсе</li>
-                        <li><i class="fas fa-check"></i> Упоминание 3+ раза</li>
+                        <li><i class="fas fa-check"></i> Полная организация розыгрыша</li>
+                        <li><i class="fas fa-check"></i> Призовой фонд от рекламодателя</li>
+                        <li><i class="fas fa-check"></i> Максимальный охват (700+ просмотров)</li>
+                        <li><i class="fas fa-check"></i> Участие в конкурсе через репост</li>
+                        <li><i class="fas fa-check"></i> Упоминание 3+ раза в ходе розыгрыша</li>
+                        <li><i class="fas fa-check"></i> Подведение итогов и объявление победителя</li>
                     </ul>
                     
-                    <a href="https://t.me/Raymond_TGG" target="_blank" class="ad-button" style="background: linear-gradient(90deg, #f59e0b, #f97316);">
+                    <button class="ad-button" onclick="orderAd('розыгрыш')" style="background: linear-gradient(90deg, #f59e0b, #f97316);">
                         Заказать розыгрыш
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -207,32 +233,5 @@
                 <div class="manager-info">
                     <h4>Raymond</h4>
                     <p>Менеджер по рекламе и сотрудничеству</p>
-                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">Отвечу на все вопросы по рекламе, помогу выбрать подходящий формат и договориться об условиях сотрудничества.</p>
-                    <a href="https://t.me/Raymond_TGG" target="_blank" class="manager-contact">
-                        <i class="fab fa-telegram"></i>
-                        Связаться: @Raymond_TGG
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Футер -->
-        <footer class="footer">
-            <div class="social-links">
-                <a href="https://t.me/whatyounot" target="_blank" class="social-link">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="https://t.me/DropsRusDBot" target="_blank" class="social-link">
-                    <i class="fas fa-robot"></i>
-                </a>
-                <a href="https://t.me/whatyounot" target="_blank" class="social-link">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <p>© 2025 DropsRus. Все права защищены.</p>
-            <p style="font-size: 0.9rem; margin-top: 10px; color: #94a3b8;">Реферальные ссылки и реклама в Telegram</p>
-        </footer>
-    </div>
-</body>
-</html>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">Отвечу на все вопросы по рекламе, помогу выбрать подходящий формат и договориться об условиях сотрудничества. Работаю с 10:00 до 
 
