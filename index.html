@@ -3,133 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DropsRus - Все ссылки</title>
+    <title>DropsRus — Реферальные ссылки и реклама</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ВСЕ СТИЛИ ЗДЕСЬ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%); color: #333; line-height: 1.6; min-height: 100vh; padding: 20px; }
-        .container { max-width: 800px; margin: 0 auto; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: #f1f5f9; min-height: 100vh; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
         
         /* Шапка */
-        .profile-header { text-align: center; background: white; border-radius: 20px; padding: 30px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .avatar { width: 80px; height: 80px; margin: 0 auto 20px; background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; color: white; }
-        h1 { font-size: 2.2rem; margin-bottom: 10px; color: #2c3e50; }
+        .header { text-align: center; padding: 40px 20px; background: rgba(30, 41, 59, 0.7); border-radius: 20px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-size: 3.5rem; margin-bottom: 15px; background: linear-gradient(90deg, #8b5cf6, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h1 { font-size: 2.8rem; margin-bottom: 10px; background: linear-gradient(90deg, #f1f5f9, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { color: #94a3b8; font-size: 1.1rem; margin-bottom: 25px; }
         
-        /* Карточки */
-        .links-grid { display: grid; gap: 15px; margin-top: 20px; }
-        .link-card { display: flex; align-items: center; background: white; border-radius: 16px; padding: 20px; text-decoration: none; color: inherit; transition: all 0.3s ease; border-left: 5px solid #4a6cf7; }
-        .link-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .card-icon { width: 50px; height: 50px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; margin-right: 15px; }
-        .card-content h3 { margin-bottom: 5px; color: #2c3e50; }
-        .card-content p { color: #666; font-size: 0.95rem; }
+        /* Контактная панель */
+        .contact-panel { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin: 25px 0; }
+        .contact-badge { background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 10px; }
+        .contact-badge i { color: #60a5fa; }
         
-        /* Цвета карточек */
-        .card-alfa { border-left-color: #ef3124; }
-        .card-alfa .card-icon { background: #ef3124; }
-        .card-ozon { border-left-color: #005bff; }
-        .card-ozon .card-icon { background: #005bff; }
-        .card-tbank { border-left-color: #00a6eb; }
-        .card-tbank .card-icon { background: #00a6eb; }
-        .card-telegram { border-left-color: #0088cc; }
-        .card-telegram .card-icon { background: #0088cc; }
-        .card-bot { border-left-color: #30c47e; }
-        .card-bot .card-icon { background: #30c47e; }
-        .card-chat { border-left-color: #7c4dff; }
-        .card-chat .card-icon { background: #7c4dff; }
+        /* Основные секции */
+        .section { background: rgba(30, 41, 59, 0.7); border-radius: 20px; padding: 30px; margin-bottom: 25px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .section-title { font-size: 1.8rem; margin-bottom: 25px; display: flex; align-items: center; gap: 12px; color: #f1f5f9; }
+        .section-title i { color: #8b5cf6; }
+        
+        /* Реферальные ссылки */
+        .ref-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .ref-card { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 25px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden; }
+        .ref-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.06); border-color: rgba(139, 92, 246, 0.3); }
+        .ref-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, #8b5cf6, #3b82f6); }
+        .card-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .card-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
+        .card-title { font-size: 1.3rem; font-weight: 600; }
+        .card-desc { color: #94a3b8; line-height: 1.5; }
+        
+        /* Реклама */
+        .ad-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .ad-card { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 30px; border: 1px solid rgba(255,255,255,0.05); position: relative; }
+        .ad-card.featured { border-color: #f59e0b; background: rgba(245, 158, 11, 0.05); }
+        .ad-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #8b5cf6; color: white; padding: 6px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600; }
+.ad-price { font-size: 2.5rem; font-weight: 700; margin: 20px 0; background: linear-gradient(90deg, #f1f5f9, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .ad-features { list-style: none; margin: 25px 0; }
+        .ad-features li { padding: 8px 0; color: #cbd5e1; display: flex; align-items: center; gap: 10px; }
+        .ad-features li i { color: #10b981; }
+        .ad-button { display: inline-block; width: 100%; text-align: center; background: linear-gradient(90deg, #8b5cf6, #3b82f6); color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease; margin-top: 10px; }
+        .ad-button:hover { transform: translateY(-2px); }
+        
+        /* Менеджер */
+        .manager-card { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 25px; display: flex; align-items: center; gap: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .manager-avatar { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #f97316); display: flex; align-items: center; justify-content: center; font-size: 32px; color: white; }
+        .manager-info h4 { font-size: 1.4rem; margin-bottom: 5px; }
+        .manager-info p { color: #94a3b8; margin-bottom: 10px; }
+        .manager-contact { display: inline-flex; align-items: center; gap: 10px; background: rgba(59, 130, 246, 0.1); color: #60a5fa; padding: 10px 20px; border-radius: 50px; text-decoration: none; border: 1px solid rgba(59, 130, 246, 0.3); }
+        
+        /* Футер */
+        .footer { text-align: center; padding: 40px 0; margin-top: 50px; color: #64748b; border-top: 1px solid rgba(255,255,255,0.05); }
+        .social-links { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
+        .social-link { width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; color: #94a3b8; text-decoration: none; transition: all 0.3s ease; }
+        .social-link:hover { background: #8b5cf6; color: white; transform: translateY(-3px); }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .header { padding: 30px 15px; }
+            h1 { font-size: 2.2rem; }
+            .ref-grid, .ad-plans { grid-template-columns: 1fr; }
+            .contact-panel { flex-direction: column; align-items: center; }
+            .manager-card { flex-direction: column; text-align: center; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Шапка -->
-        <div class="profile-header">
-            <div class="avatar">
-                <i class="fas fa-user-circle"></i>
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
             </div>
             <h1>DropsRus</h1>
-            <p style="color: #666; margin-bottom: 15px;">Все реферальные ссылки в одном месте</p>
-            <div style="display: flex; justify-content: center; gap: 15px; font-size: 0.9rem;">
-                <span><i class="fas fa-link"></i> 6 активных ссылок</span>
-                <span><i class="fas fa-gift"></i> Реферальная программа</span>
+            <p class="subtitle">Реферальные программы и эффективная реклама в Telegram</p>
+            
+            <div class="contact-panel">
+                <div class="contact-badge">
+                    <i class="fab fa-telegram"></i>
+                    <span>@Whatnotyou</span>
+                </div>
+                <div class="contact-badge">
+                    <i class="fas fa-users"></i>
+                    <span>Канал: @Whatnotyou</span>
+                </div>
+                <div class="contact-badge">
+                    <i class="fas fa-robot"></i>
+                    <span>Бот: @DropsRusDBot</span>
+                </div>
             </div>
-        </div>
+        </header>
 
         <!-- Реферальные ссылки -->
-        <h2 style="margin-bottom: 15px;"><i class="fas fa-gift"></i> Реферальные программы</h2>
-        <p style="color: #666; margin-bottom: 20px;">Нажмите на карточку для перехода</p>
-        
-        <div class="links-grid">
-            <!-- Альфа-банк -->
-            <a href="https://alfa.me/m3QxhK" target="_blank" class="link-card card-alfa">
-                <div class="card-icon">
-                    <i class="fas fa-university"></i>
-                </div>
-                <div class="card-content">
-                    <h3>Альфа-Банк</h3>
-                    <p>Реферальная ссылка на банковские продукты</p>
-</div>
-            </a>
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-gift"></i>
+                Реферальные программы
+            </h2>
+            <p style="color: #94a3b8; margin-bottom: 25px; font-size: 1.1rem;">Нажмите на карточку для перехода и получения бонуса</p>
+<div class="ref-grid">
+                <!-- Альфа-банк -->
+                <a href="https://alfa.me/m3QxhK" target="_blank" class="ref-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: linear-gradient(135deg, #ef3124, #ff6b6b);">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3 class="card-title">Альфа-Банк</h3>
+                    </div>
+                    <p class="card-desc">Реферальная ссылка на банковские продукты с выгодными условиями</p>
+                </a>
+                
+                <!-- Озон -->
+                <a href="https://ozon.ru/fintech/promo/ref/MBDDWEOIM" target="_blank" class="ref-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: linear-gradient(135deg, #005bff, #3b82f6);">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3 class="card-title">Ozon</h3>
+                    </div>
+                    <p class="card-desc">Промо-ссылка на маркетплейс Ozon с кэшбэком и бонусами</p>
+                </a>
+                
+                <!-- Т-Банк -->
+                <a href="https://tbank.ru/baf/13Q4RZskE7T" target="_blank" class="ref-card">
+                    <div class="card-header">
+                        <div class="card-icon" style="background: linear-gradient(135deg, #00a6eb, #06b6d4);">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <h3 class="card-title">Т-Банк</h3>
+                    </div>
+                    <p class="card-desc">Реферальная программа Т-Банка с повышенными ставками</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Раздел рекламы -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-bullhorn"></i>
+                Реклама в Telegram-канале
+            </h2>
+            <p style="color: #94a3b8; margin-bottom: 30px; font-size: 1.1rem;">Эффективное продвижение вашего продукта или услуги</p>
             
-            <!-- Озон -->
-            <a href="https://ozon.ru/fintech/promo/ref/MBDDWEOIM" target="_blank" class="link-card card-ozon">
-                <div class="card-icon">
-                    <i class="fas fa-shopping-bag"></i>
+            <div class="ad-plans">
+                <!-- Базовый план -->
+                <div class="ad-card">
+                    <div class="ad-badge">САМЫЙ ВЫБОР</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">📌 Пост-реклама</h3>
+                    <div class="ad-price">750 ₽</div>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">Размещение рекламного поста в канале</p>
+                    
+                    <ul class="ad-features">
+                        <li><i class="fas fa-check"></i> Пост остается навсегда</li>
+                        <li><i class="fas fa-check"></i> Охват 5000+ пользователей</li>
+                        <li><i class="fas fa-check"></i> Ссылка и описание</li>
+                        <li><i class="fas fa-check"></i> Пиковый трафик</li>
+                    </ul>
+                    
+                    <a href="https://t.me/Raymond_TGG" target="_blank" class="ad-button">
+                        Заказать рекламу
+                    </a>
                 </div>
-                <div class="card-content">
-                    <h3>Ozon</h3>
-                    <p>Промо-ссылка на маркетплейс Ozon</p>
+                
+                <!-- Розыгрыш -->
+                <div class="ad-card featured">
+                    <div class="ad-badge" style="background: #f59e0b;">ВЫГОДНО</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">🎁 Розыгрыш + реклама</h3>
+                    <div class="ad-price">2000 ₽</div>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">Розыгрыш приза с рекламой вашего продукта</p>
+                    
+                    <ul class="ad-features">
+<li><i class="fas fa-check"></i> Организация розыгрыша</li>
+                        <li><i class="fas fa-check"></i> Призовой фонд от вас</li>
+                        <li><i class="fas fa-check"></i> Максимальный охват</li>
+                        <li><i class="fas fa-check"></i> Участие в конкурсе</li>
+                        <li><i class="fas fa-check"></i> Упоминание 3+ раза</li>
+                    </ul>
+                    
+                    <a href="https://t.me/Raymond_TGG" target="_blank" class="ad-button" style="background: linear-gradient(90deg, #f59e0b, #f97316);">
+                        Заказать розыгрыш
+                    </a>
                 </div>
-            </a>
+            </div>
+        </section>
+
+        <!-- Менеджер по рекламе -->
+        <section class="section">
+            <h2 class="section-title">
+                <i class="fas fa-headset"></i>
+                Менеджер по рекламе
+            </h2>
             
-            <!-- Т-Банк -->
-            <a href="https://tbank.ru/baf/13Q4RZskE7T" target="_blank" class="link-card card-tbank">
-                <div class="card-icon">
-                    <i class="fas fa-credit-card"></i>
+            <div class="manager-card">
+                <div class="manager-avatar">
+                    <i class="fas fa-user-tie"></i>
                 </div>
-                <div class="card-content">
-                    <h3>Т-Банк</h3>
-                    <p>Реферальная программа Т-Банка</p>
+                <div class="manager-info">
+                    <h4>Raymond</h4>
+                    <p>Менеджер по рекламе и сотрудничеству</p>
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">Отвечу на все вопросы по рекламе, помогу выбрать подходящий формат и договориться об условиях сотрудничества.</p>
+                    <a href="https://t.me/Raymond_TGG" target="_blank" class="manager-contact">
+                        <i class="fab fa-telegram"></i>
+                        Связаться: @Raymond_TGG
+                    </a>
                 </div>
-            </a>
-            
-            <!-- Канал -->
-            <a href="https://t.me/whatyounot" target="_blank" class="link-card card-telegram">
-                <div class="card-icon">
-                    <i class="fab fa-telegram"></i>
-                </div>
-                <div class="card-content">
-                    <h3>Мой канал</h3>
-                    <p>Telegram-канал @Whatnotyou</p>
-                </div>
-            </a>
-            
-            <!-- Бот -->
-            <a href="https://t.me/DropsRusDBot" target="_blank" class="link-card card-bot">
-                <div class="card-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <div class="card-content">
-                    <h3>Мой бот</h3>
-                    <p>Telegram-бот @DropsRusDBot</p>
-                </div>
-            </a>
-            
-            <!-- Личка -->
-            <a href="https://t.me/whatyounot" target="_blank" class="link-card card-chat">
-                <div class="card-icon">
-                    <i class="fas fa-comment-dots"></i>
-                </div>
-                <div class="card-content">
-                    <h3>Личные сообщения</h3>
-                    <p>Написать мне @Whatnotyou</p>
-                </div>
-            </a>
-        </div>
-        
+            </div>
+        </section>
+
         <!-- Футер -->
-        <footer style="text-align: center; margin-top: 40px; padding-top: 20px; color: #666; border-top: 1px solid #eaeaea;">
-            <p>© 2023 DropsRus. Все ссылки актуальны.</p>
+        <footer class="footer">
+            <div class="social-links">
+                <a href="https://t.me/whatyounot" target="_blank" class="social-link">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://t.me/DropsRusDBot" target="_blank" class="social-link">
+                    <i class="fas fa-robot"></i>
+                </a>
+                <a href="https://t.me/whatyounot" target="_blank" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p>© 2025 DropsRus. Все права защищены.</p>
+            <p style="font-size: 0.9rem; margin-top: 10px; color: #94a3b8;">Реферальные ссылки и реклама в Telegram</p>
         </footer>
     </div>
 </body>
 </html>
+
