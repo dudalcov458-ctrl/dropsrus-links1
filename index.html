@@ -43,6 +43,7 @@
         .card-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; }
         .card-title { font-size: 1.3rem; font-weight: 600; }
         .card-desc { color: #94a3b8; line-height: 1.5; }
+        .card-reward { margin-top: 10px; padding: 8px 12px; background: rgba(34, 197, 94, 0.15); border-radius: 8px; display: inline-flex; align-items: center; gap: 8px; color: #4ade80; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(34, 197, 94, 0.3); }
         
         /* Реклама */
         .ad-plans { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -55,6 +56,11 @@
         .ad-features li i { color: #10b981; }
         .ad-button { display: inline-block; width: 100%; text-align: center; background: linear-gradient(90deg, #8b5cf6, #3b82f6); color: white; padding: 15px; border-radius: 12px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease; margin-top: 10px; border: none; cursor: pointer; font-family: inherit; font-size: 1rem; }
         .ad-button:hover { transform: translateY(-2px); }
+        
+        /* Кнопка заказа карты */
+        .order-card-btn { display: block; width: 100%; max-width: 400px; margin: 30px auto; text-align: center; background: linear-gradient(90deg, #ef4444, #f97316); color: white; padding: 18px 30px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .order-card-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(239, 68, 68, 0.3); }
+        .order-card-btn i { margin-right: 10px; }
         
         /* Менеджер */
         .manager-card { background: rgba(255,255,255,0.03); border-radius: 16px; padding: 25px; display: flex; align-items: center; gap: 20px; border: 1px solid rgba(255,255,255,0.05); }
@@ -102,7 +108,7 @@
                     <div class="stat-label">Просмотров на постах</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number">97%</div>
+                    <div class="stat-number">40%</div>
                     <div class="stat-label">ER (вовлеченность)</div>
                 </div>
             </div>
@@ -127,9 +133,9 @@
         <section class="section">
             <h2 class="section-title">
                 <i class="fas fa-gift"></i>
-                Реферальные программы
+                Реферальные программы с выплатами
             </h2>
-            <p style="color: #94a3b8; margin-bottom: 25px; font-size: 1.1rem;">Нажмите на карточку для перехода и получения бонуса</p>
+            <p style="color: #94a3b8; margin-bottom: 25px; font-size: 1.1rem;">Нажмите на карточку для перехода. Выплаты после успешного оформления</p>
             
             <div class="ref-grid">
                 <!-- Альфа-банк -->
@@ -138,9 +144,14 @@
                         <div class="card-icon" style="background: linear-gradient(135deg, #ef3124, #ff6b6b);">
                             <i class="fas fa-university"></i>
                         </div>
-                        <h3 class="card-title">Альфа-Банк</h3>
+                        <div>
+                            <h3 class="card-title">Альфа-Банк</h3>
+                            <div class="card-reward">
+                                <i class="fas fa-money-bill-wave"></i> Выплата: 1 000 ₽
+                            </div>
+                        </div>
                     </div>
-                    <p class="card-desc">Реферальная ссылка на банковские продукты с выгодными условиями</p>
+                    <p class="card-desc">Оформите карту Альфа-Банка по реферальной ссылке и получите выплату</p>
                 </a>
                 
                 <!-- Озон -->
@@ -149,9 +160,14 @@
                         <div class="card-icon" style="background: linear-gradient(135deg, #005bff, #3b82f6);">
                             <i class="fas fa-shopping-bag"></i>
                         </div>
-                        <h3 class="card-title">Ozon</h3>
+                        <div>
+                            <h3 class="card-title">Ozon</h3>
+                            <div class="card-reward">
+                                <i class="fas fa-money-bill-wave"></i> Выплата: 250 ₽
+                            </div>
+                        </div>
                     </div>
-                    <p class="card-desc">Промо-ссылка на маркетплейс Ozon с кэшбэком и бонусами</p>
+                    <p class="card-desc">Активируйте промо-ссылку Ozon и получите выплату после покупки</p>
                 </a>
                 
                 <!-- Т-Банк -->
@@ -160,11 +176,21 @@
                         <div class="card-icon" style="background: linear-gradient(135deg, #00a6eb, #06b6d4);">
                             <i class="fas fa-credit-card"></i>
                         </div>
-                        <h3 class="card-title">Т-Банк</h3>
+                        <div>
+                            <h3 class="card-title">Т-Банк</h3>
+                            <div class="card-reward">
+                                <i class="fas fa-money-bill-wave"></i> Выплата: 500 ₽
+                            </div>
+                        </div>
                     </div>
-                    <p class="card-desc">Реферальная программа Т-Банка с повышенными ставками</p>
+                    <p class="card-desc">Оформите карту Т-Банка по реферальной программе и получите выплату</p>
                 </a>
             </div>
+            
+            <!-- Кнопка заказа карты -->
+            <button class="order-card-btn" onclick="orderCard()">
+                <i class="fas fa-credit-card"></i> Заказал карту по ссылке — получить выплату
+            </button>
         </section>
 
         <!-- Раздел рекламы -->
@@ -233,5 +259,46 @@
                 <div class="manager-info">
                     <h4>Raymond</h4>
                     <p>Менеджер по рекламе и сотрудничеству</p>
-                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">Отвечу на все вопросы по рекламе, помогу выбрать подходящий формат и договориться об условиях сотрудничества. Работаю с 10:00 до 
+                    <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">Отвечу на все вопросы по рекламе, помогу выбрать подходящий формат и договориться об условиях сотрудничества. Работаю с 10:00 до 22:00 по МСК.</p>
+                    <a href="https://t.me/Raymond_TGG" target="_blank" class="manager-contact">
+                        <i class="fab fa-telegram"></i>
+                        Связаться: @Raymond_TGG
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <div class="social-links">
+                <a href="https://t.me/whatyounot" target="_blank" class="social-link">
+                    <i class="fab fa-telegram"></i>
+                </a>
+                <a href="https://t.me/DropsRusDBot" target="_blank" class="social-link">
+                    <i class="fas fa-robot"></i>
+                </a>
+                <a href="https://t.me/whatyounot" target="_blank" class="social-link">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p>© 2025 DropsRus. Все права защищены.</p>
+            <p style="font-size: 0.9rem; margin-top: 10px; color: #94a3b8;">Реферальные программы с выплатами и эффективная реклама</p>
+        </footer>
+    </div>
+
+    <script>
+        // Функция для заказа рекламы
+        function orderAd(type) {
+            const message = `Здравствуйте! Хочу заказать ${type} в вашем Telegram-канале.`;
+            window.open(`https://t.me/Raymond_TGG?text=${encodeURIComponent(message)}`, '_blank');
+        }
+        
+        // Функция для заказа карты
+        function orderCard() {
+            const message = `Здравствуйте! Заказал карту по вашей ссылке. Хочу получить выплату.`;
+            window.open(`https://t.me/Whatnotyou?text=${encodeURIComponent(message)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
 
